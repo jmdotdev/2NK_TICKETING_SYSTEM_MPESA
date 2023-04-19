@@ -1,0 +1,100 @@
+{% extends 'index.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Carbook - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+</head>
+<body>
+{% block content %}
+
+    <div class="row justify-content-center mb-5 mt-5">
+        <div class="col-md-7 text-center heading-section ftco-animate mt-5">
+            <span class="subheading">Routes</span>
+            <h2 class="mb-3">Where We Travel</h2>
+        </div>
+    </div>
+
+    <section class="ftco-section ftco-cart">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 ftco-animate">
+                    <div class="car-list">
+                        <table class="table">
+                            <thead class="thead-primary">
+                            <tr class="text-center">
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                <th class="bg-primary heading">Source:</th>
+                                <th class="bg-dark heading">Destination:</th>
+                                <th class="bg-black heading">Price:</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for route in route %}
+                                <tr class="">
+                                    <td class="car-image">
+                                        <div class="img" style="background-image:url({{ route.car.image.url }});"></div>
+                                    </td>
+                                    <td class="product-name">
+                                        <a href="{% url 'RoutesDetail' route.id %}"><h3
+                                                class="text-info">{{ route.car.name }}</h3></a>
+
+                                        <p class="mb-0 rated">
+                                            <span>rated:</span>
+                                            <span class="ion-ios-star"></span>
+                                            <span class="ion-ios-star"></span>
+                                            <span class="ion-ios-star"></span>
+                                            <span class="ion-ios-star"></span>
+                                            <span class="ion-ios-star"></span>
+                                        </p>
+                                    </td>
+
+                                    <td class="price">
+                                        <p class="btn-custom alert-success p-3">Departure:{{ route.Departure_Time }}</p>
+                                        <div class="price-rate">
+                                            <h3>
+                                                <span class="num"><small class="currency"></small>From:</span>
+                                                <span class="per"></span>
+                                            </h3>
+                                            <span class="subheading">From:Nyahururu<br>Town</span>
+                                        </div>
+                                    </td>
+
+                                    <td class="price">
+                                        <p class="btn-custom alert-success p-3">Arrival:{{ route.Arrival_time }}</p>
+                                        <div class="price-rate">
+                                            <h3>
+                                                <span class="num"><small class="currency"></small> To:</span>
+                                                <span class="per"></span>
+                                            </h3>
+                                            <span class="subheading">{{ route.Destination }} Town</span>
+                                        </div>
+                                    </td>
+
+                                    <td class="price">
+                                        <p class="btn-custom alert-success p-3">Price:{{ route.price }}</p>
+                                        <div class="price-rate">
+                                            <h3>
+                                                <span class="num"><small class="currency"></small> ksh {{ route.price }}</span>
+                                                <span class="per">/per trip</span>
+                                            </h3>
+                                            <span class="subheading"></span>
+                                        </div>
+                                    </td>
+                                </tr><!-- END TR-->
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+</body>
+</html>

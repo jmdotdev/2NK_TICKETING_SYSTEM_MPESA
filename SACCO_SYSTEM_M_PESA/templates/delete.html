@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Item</title>
+</head>
+{% block content %}
+    <body>
+    <div class="main" style="margin-top: 120px;margin-bottom: 50px;">
+        <div class="container">
+            <form method="post" onsubmit="Submit()">
+                {% csrf_token %}
+                <p class="text-black-50">are you sure you want to delete {{ object }}?</p>
+                <button class="btn btn-danger" type="submit">im sure</button>
+            </form>
+        </div>
+
+    </div>
+    <script>
+        function Submit(){
+            alert('Item Deleted Successfully')
+        }
+    </script>
+    </body>
+{% endblock %}
+</html>

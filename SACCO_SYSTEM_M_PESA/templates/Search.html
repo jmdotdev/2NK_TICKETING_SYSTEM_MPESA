@@ -1,0 +1,57 @@
+{% extends 'index.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+</head>
+<body>
+{% block content %}
+    <div class="main" style="margin-top: 100px;">
+{% if route %}
+    <h2 class="text-center"><strong>Search Results Found</strong></h2>
+<br>
+<div class="mid">
+     <div class="grid">
+         {% for route in route %}
+         <div class="grid-item">
+         <div class="container">
+             <div class="card mb-5 bg-light">
+                 <div class="card-title">
+                     <h2 class="text-center m-3" style="text-decoration-line: underline"><strong>{{ route }}</strong></h2>
+                 </div>
+                 <img class="card-img p-4" src="{{ route.car.image.url }}" alt="" height="350px">
+                 <div class="card-content">
+                     <div  class="card-header">
+                         <p class="card-text text-dark">
+                             <b>Expected Departure Time:</b>{{ route.Departure_Time }}<br>
+                             <b>Expected Arrival Time:</b>{{ route.Arrival_time }}<br>
+                             <b>Fare:</b>{{ route.price }} per person<br>
+                             <b>Day:</b>{{ route.Day }}<br>
+                     </p>
+                     <a class="btn btn-info" href="{% url 'RoutesDetail' route.id %}">
+                          details
+                     </a></div>
+
+                 </div>
+             </div>
+         </div>
+         </div>
+               {% endfor %}
+     </div>
+     </div>
+   {% else %}
+    <div class="container">
+     <div class="alert alert-dismissible alert-success">
+ <h3>No routes found</h3>
+ <a type="button" data-dismiss="alert" class="close"><i class="icon-cancel"></i></a>
+ </div>
+    </div>
+
+{% endif %}
+    </div>
+
+{% endblock %}
+</body>
+</html>

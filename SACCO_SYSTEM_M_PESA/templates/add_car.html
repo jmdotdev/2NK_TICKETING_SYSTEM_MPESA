@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add_car</title>
+</head>
+<body>
+{% block content %}
+<div class="main">
+    <div class="main" style="margin-top: 100px;">
+    {% for messages in messages %}
+    <div class="alert-success p-3">{{ messages }}</div>
+        {% endfor %}
+    <div class="addcar" style="display: flex;justify-content: center;align-items: center;">
+    <form action="" class="bg-light p-5 contact-form" method="post" enctype="multipart/form-data" style="display: grid;">
+        <h3 class="text-center" style="text-decoration-line: underline;padding: 2px;">Add Car</h3>
+                {% csrf_token %}
+             {{ form }}
+        <div class="form-group">
+                <input type="submit" value="Add Car" class="btn btn-primary mt-2">
+              </div>
+            </form>
+    </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>

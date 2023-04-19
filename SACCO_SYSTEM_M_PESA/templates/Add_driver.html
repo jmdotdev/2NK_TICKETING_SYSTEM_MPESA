@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Driver</title>
+</head>
+<body>
+{% block content %}
+
+     <div class="row" style="margin-top: 100px;background-color: #f8f9fa;">
+          <div class="container">
+
+         <div class="col-md-10 text-center p-3">
+           <h3>Join Us</h3>
+             <div class="container text-center mt-5">
+                 <form method="post" enctype="multipart/form-data">
+                     {% csrf_token %}
+                     {% for field in form %}
+                         <label>{{ field.label_tag }}</label><br>
+                         {{ field }}<br>
+                     {% endfor %}
+                 <button class="btn btn-info justify-content-start">submit</button>
+                 </form>
+             </div>
+         </div>
+     </div>
+     </div>
+{% endblock %}
+
+</body>
+</html>

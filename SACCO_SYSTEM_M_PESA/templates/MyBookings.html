@@ -1,0 +1,48 @@
+{% extends 'index.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyBookings</title>
+</head>
+<body>
+{% block content %}
+    <main id="main" style="margin-top: 150px; margin-bottom: 100px;">
+    <section class="Fixture_Detail">
+
+        <div class="container">
+        {% for messages in messages %}
+            <div class="alert-danger alert-dismissible p-4">{{ messages }}</div>
+        {% endfor %}
+            {% for booking in booking %}
+     <div class="card text-center mt-5">
+  <div class="card-header">
+    Booking For:{{ booking.user }}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><b>Route:{{ booking.route }}</b></h5>
+          <a class="btn btn-success"  href="{% url 'lipa_na_mpesa' booking.id %}" >pay with mpesa</a><br>
+  <a class="btn btn-danger mt-3" href="{% url 'CancelBooking' booking.id %}">Cancel Booking</a>
+
+  <div class="card-footer text-muted">
+      Total_Amount:{{ booking.total }}<br>
+      Persons:{{ booking.persons }}
+</div>
+     </div>
+             </div>
+                {% empty %}
+                <div class="alert alert-success alert-dismissible p-3 text-center font-italic text-dark">
+
+                    <h3> <strong>No Bookings Made yet!! </strong></h3>
+
+                <a type="button" class="close" data-dismiss="alert"><i class="icon-cancel"></i> </a>
+                </div>
+         {% endfor %}
+
+        </div>
+    </section>
+    </main>
+{% endblock %}
+</body>
+</html>

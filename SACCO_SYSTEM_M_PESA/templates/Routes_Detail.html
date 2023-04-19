@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RoutesDetail</title>
+</head>
+<body>
+{% block content %}
+     <main id="main" style="margin-top: 150px; margin-bottom: 100px;">
+    <section class="Fixture_Detail">
+        <div class="container">
+     <div class="card text-center mt-5">
+  <div class="card-header">
+    {{ route.From }} To {{ route.Destination }}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><b>car:</b>{{ route.car }}<br><b>plate_number:</b>{{ route.car.plate_no }}</h5>
+      <p class="card-text text-success">{{ route.car.capacity }} seats remaining</p>
+      {% if request.user.is_authenticated %}
+    <a href="{% url 'BookingForm' route.id %}" class="btn btn-primary">Make Resevation </a>
+      {% else %}
+      <div>
+          <h3>please login to complete the reservation</h3>
+            <a href="{% url 'login'%}" class="btn btn-primary">login </a>
+      </div>
+    {% endif %}
+  </div>
+  <div class="card-footer text-muted">
+   departure time:{{ route.Departure_Time }}:: arrival_time:{{ route.Arrival_time }}
+  </div>
+</div>
+     </div>
+    </section>
+    </main>
+{% endblock %}
+</body>
+</html>

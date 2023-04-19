@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BookingForm</title>
+</head>
+<body>
+{% block content %}
+    <style>
+    input{
+        display: grid;
+        width: 300px;
+        height: 50px;
+    }
+    </style>
+<div class="main" style="margin-top: 100px;display:block;">
+<form method="post" style="display: grid;justify-content: center;align-items: center;">
+{% csrf_token %}
+    <label>date:
+        <input class="inputs" type="date" value="{{ form.date }}
+    </label>
+
+    <label>time:
+        <input class="inputs" type="time" value="{{ form.Time }}
+    </label>
+    <label>persons:
+        <input class="inputs" type="number" value="{{ form.persons }}
+    </label>
+
+    <label>mobile no:
+        <input class="inputs" type="number" value="{{ form.mobile_no}}
+    </label>
+
+    <button class="btn btn-info mt-3" type="submit">book now</button>
+</form>
+</div>
+
+{% endblock %}
+</body>
+</html>

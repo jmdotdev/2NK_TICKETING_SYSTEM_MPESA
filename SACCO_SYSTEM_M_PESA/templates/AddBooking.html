@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AddBooking</title>
+</head>
+<body>
+{% block content %}
+    <div class="main" style="margin-top:120px;display: flex;align-items: center;justify-content: center;">
+        <form method="post" style="display: grid">
+            {% csrf_token %}
+            {{ form }}
+            <button class="btn btn-info mt-2" type="submit">submit</button>
+        </form>
+    </div>
+{% endblock %}
+</body>
+
+</html>

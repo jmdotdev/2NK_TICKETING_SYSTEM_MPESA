@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+{% block content %}
+        <main id="main" style="margin-top: 100px;">
+    <section class="loginuser">
+        <div class="container">
+            <div class="row container">
+
+                <div class="col-md-12">
+                    <div class="container">
+                    <form method="post" class="form-group container">
+                                  <h3 class="mt-3 text-decoration-underline">Create Account </h3>
+                    {% csrf_token %}
+                    <input type="text" name="username"  class="form-control mt-5" placeholder="username"{{ form.username }}
+                    <input type="text" name="email"  class="form-control mt-3" placeholder="email"{{ form.email }}
+                    <input type="password" name="password1" class="form-control mt-3" placeholder="password"{{ form.password1 }}
+                    <input type="password" name="password2" class="form-control mt-3" placeholder="confirm password"{{ form.password2 }}
+                    <button class="btn btn-info mt-2">submit</button>
+                        <p class="mb-5">Already Have An Account?<a href="{% url 'login' %}">Login Here</a> </p>
+                    </form>
+                        <div class="alert-danger">{{ form.errors }}</div>
+                    </div>
+
+        </div>
+            </div>
+        </div>
+    </section>
+    </main>
+{% endblock %}
+</body>
+</html>

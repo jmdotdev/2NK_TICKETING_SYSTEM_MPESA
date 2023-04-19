@@ -1,0 +1,162 @@
+{% extends 'index.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Carbook - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+</head>
+<body>
+{% block content %}
+    <div class="row justify-content-center mb-5 mt-5">
+        <div class="col-md-7 text-center heading-section ftco-animate mt-5">
+            <span class="subheading">About</span>
+            <h2 class="mb-3">About Us</h2>
+        </div>
+    </div>
+    <section class="ftco-section ftco-about">
+        <div class="container">
+            <div class="row no-gutters">
+                <div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center"
+                     style="background-image: url({% static 'images/about.jpg' %});">
+                </div>
+                <div class="col-md-6 wrap-about ftco-animate">
+                    <div class="heading-section heading-section-white pl-md-5">
+                        <span class="subheading">2NK SACCO</span>
+                        <h2 class="mb-4">ABOUT US</h2>
+                       <p>2NK SACCO is a transport based SACCO with its headquarters located in Nyeri Town. The SACCO has gained popularities in various parts of the country for its efficient service transport both ordinary fourteen capacity vans and executive – (shutles) and parcel deliveries.
+The SACCO vehicle offers daily trips to the capital city of Nairobi from major towns among them Nyeri, Karatina, Kerugoya, Nakuru, Eldoret, Thika and Nanyuki, Kitale, Kisii, and Bungoma.
+
+The SACCO was formed in 1994 by matatu owners from Nyeri and Karatina at a time when the Matatu industry was known for its notoriety. With the zeal to streamline the operations and instill discipline a group of Matatu owners pursed the incorporation and registration of 2NK SACCO IN 1994 UNDER THE COOPERATIVES SOCIETY Act cap 490.
+
+The SACCO has upheld its core objectives of savings mobilization for owned landing at affordable rates to enable members engage in their businesses profitable and improve their lively hood.</p>
+                        <p><a href="#" class="btn btn-primary py-3 px-4">Search Vehicle</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!---Vision,Mission,Values-->
+    <div class="container mt-5">
+        <div class="card-group">
+            <div class="row w-100 m-3 col-xs-12" style="display: flex;justify-content:
+             center;align-items: center;color: black;">
+                <div class="card w-25 m-3">
+                    <div class="card-header">
+                        <div class="card-title">OUR VISION</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-text">
+                            <p>To create and maintain an efficient nationally competitive strong transport SACCO,
+                                professionally managed and empowering all its stakeholders</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card w-25 m-3">
+                    <div class="card-header">
+                        <div class="card-title">OUR MISSION</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-text h-50">
+                            <p>To mobilize savings and provide credit,offer efficient transport
+                                and other diversified services,through prudent management,motivating staff for optimum
+                                returns
+                                to our members and other stakeholders</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card w-25 m-3">
+                    <div class="card-header">
+                        <div class="card-title">CORE VALUES</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-text">
+                            <p>Accountability and transparency,Hardwork and teamwork,Effectiveness in service
+                                delivery,Honesty,Integrity,
+                                Equality,Hardwork and teamwork,Knowledgeable Personnel,Punctuality,Society's Image</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!----End of Vision and Mission---->
+    <section class="ftco-section testimony-section bg-light">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-7 text-center heading-section ftco-animate">
+                    <span class="subheading">Testimonial</span>
+                    <h2 class="mb-3">Happy Clients</h2>
+                </div>
+            </div>
+            <div class="row ftco-animate">
+                <div class="col-md-12">
+                    <div class="carousel-testimony owl-carousel ftco-owl">
+                        {% for testimonial in testimonial %}
+                            <div class="item">
+                                <div class="testimony-wrap rounded text-center py-4 pb-5">
+                                    <div class="user-img mb-2"
+                                         style="background-image: url('{{ testimonial.avatar.url }}')">
+                                    </div>
+                                    <div class="text pt-4">
+                                        <p class="mb-4">{{ testimonial.message }}</p>
+                                        <p class="name">{{ testimonial.name }}</p>
+                                        <span class="position">{{ testimonial.subject }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-counter ftco-section img" id="section-counter">
+        <div class="overlay"></div>
+        <div class="container">
+            {% for counter in counter %}
+                <div class="row">
+                    <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18">
+                            <div class="text text-border d-flex align-items-center">
+                                <strong class="number" data-number="{{ counter.years_experienced }}">0</strong>
+                                <span>Year <br>Experienced</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18">
+                            <div class="text text-border d-flex align-items-center">
+                                <strong class="number" data-number="{{ counter.total_cars }}">0</strong>
+                                <span>Total <br>Cars</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18">
+                            <div class="text text-border d-flex align-items-center">
+                                <strong class="number" data-number="{{ counter.happy_customers }}">0</strong>
+                                <span>Happy <br>Customers</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18">
+                            <div class="text d-flex align-items-center">
+                                <strong class="number" data-number="{{ counter.total_branches }}">0</strong>
+                                <span>Total <br>Branches</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
+
+</body>
+</html>
